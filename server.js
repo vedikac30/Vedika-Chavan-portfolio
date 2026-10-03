@@ -26,7 +26,13 @@ const server = http.createServer((req, res) => {
     reqPath = '/index.html';
   }
 
-  const filePath = path.join(__dirname, reqPath);
+  let filePath = path.join(__dirname, reqPath);
+  if (!fs.existsSync(filePath)) {
+    const publicCandidate = path.join(__dirname, 'public', reqPath);
+    if (fs.existsSync(publicCandidate)) {
+      filePath = publicCandidate;
+    }
+  }
 
   fs.readFile(filePath, (err, content) => {
     if (err) {
