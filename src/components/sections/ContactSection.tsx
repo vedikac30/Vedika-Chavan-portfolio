@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Copy, Check, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Copy, Check, Send, CheckCircle2, ExternalLink } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from '../icons/SocialIcons';
 import { RESUME_DATA } from '../../data/resumeData';
 
 export default function ContactSection() {
@@ -69,8 +70,8 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:items-center">
+
         <div className="lg:col-span-5 space-y-6">
           <span className="text-xs uppercase font-mono tracking-widest text-indigo-400 font-semibold">Let's Connect</span>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -83,17 +84,17 @@ export default function ContactSection() {
           {/* Quick Copy Contact Tiles */}
           <div className="space-y-3 pt-2">
             {/* Email */}
-            <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70">
-              <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4 text-indigo-400" />
-                <div>
+            <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70 hover:border-indigo-500/40 transition-colors">
+              <a href={`mailto:${RESUME_DATA.email}`} className="flex items-center space-x-3 flex-1 min-w-0">
+                <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
+                <div className="truncate">
                   <span className="text-[11px] text-slate-400 block">Email Address</span>
-                  <span className="text-xs sm:text-sm font-medium text-white">{RESUME_DATA.email}</span>
+                  <span className="text-xs sm:text-sm font-medium text-white truncate">{RESUME_DATA.email}</span>
                 </div>
-              </div>
+              </a>
               <button
                 onClick={() => handleCopy(RESUME_DATA.email, 'email')}
-                className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 transition-colors"
+                className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 transition-colors ml-2 shrink-0"
                 title="Copy email"
                 aria-label="Copy email"
               >
@@ -101,18 +102,90 @@ export default function ContactSection() {
               </button>
             </div>
 
-            {/* Phone */}
-            <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70">
-              <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-emerald-400" />
-                <div>
-                  <span className="text-[11px] text-slate-400 block">Phone / WhatsApp</span>
-                  <span className="text-xs sm:text-sm font-medium text-white">{RESUME_DATA.phone}</span>
+            {/* LinkedIn */}
+            <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70 hover:border-[#0a66c2]/40 transition-colors">
+              <a
+                href={RESUME_DATA.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 flex-1 min-w-0"
+              >
+                <LinkedinIcon className="w-4 h-4 text-[#0a66c2] shrink-0" />
+                <div className="truncate">
+                  <span className="text-[11px] text-slate-400 block">LinkedIn Profile</span>
+                  <span className="text-xs sm:text-sm font-medium text-white truncate">{RESUME_DATA.linkedin}</span>
                 </div>
+              </a>
+              <div className="flex items-center space-x-1.5 ml-2 shrink-0">
+                <a
+                  href={RESUME_DATA.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-slate-700/60 hover:bg-[#0a66c2]/20 hover:text-[#0a66c2] text-slate-300 transition-colors"
+                  title="Open LinkedIn"
+                  aria-label="Open LinkedIn"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <button
+                  onClick={() => handleCopy(RESUME_DATA.linkedinUrl, 'linkedin')}
+                  className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 transition-colors"
+                  title="Copy LinkedIn URL"
+                  aria-label="Copy LinkedIn URL"
+                >
+                  {copiedField === 'linkedin' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                </button>
               </div>
+            </div>
+
+            {/* GitHub */}
+            <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70 hover:border-indigo-500/40 transition-colors">
+              <a
+                href={RESUME_DATA.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 flex-1 min-w-0"
+              >
+                <GithubIcon className="w-4 h-4 text-slate-300 shrink-0" />
+                <div className="truncate">
+                  <span className="text-[11px] text-slate-400 block">GitHub Profile</span>
+                  <span className="text-xs sm:text-sm font-medium text-white truncate">{RESUME_DATA.github}</span>
+                </div>
+              </a>
+              <div className="flex items-center space-x-1.5 ml-2 shrink-0">
+                <a
+                  href={RESUME_DATA.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+                  title="Open GitHub"
+                  aria-label="Open GitHub"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <button
+                  onClick={() => handleCopy(RESUME_DATA.githubUrl, 'github')}
+                  className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 transition-colors"
+                  title="Copy GitHub URL"
+                  aria-label="Copy GitHub URL"
+                >
+                  {copiedField === 'github' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70 hover:border-emerald-500/40 transition-colors">
+              <a href={`tel:${RESUME_DATA.phone.replace(/[^0-9+]/g, '')}`} className="flex items-center space-x-3 flex-1 min-w-0">
+                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="truncate">
+                  <span className="text-[11px] text-slate-400 block">Phone / WhatsApp</span>
+                  <span className="text-xs sm:text-sm font-medium text-white truncate">{RESUME_DATA.phone}</span>
+                </div>
+              </a>
               <button
                 onClick={() => handleCopy(RESUME_DATA.phone, 'phone')}
-                className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 transition-colors"
+                className="p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 text-slate-300 transition-colors ml-2 shrink-0"
                 title="Copy phone"
                 aria-label="Copy phone"
               >
@@ -122,7 +195,7 @@ export default function ContactSection() {
 
             {/* Location */}
             <div className="flex items-center space-x-3 p-3.5 rounded-xl bg-slate-800/70 border border-slate-700/70">
-              <MapPin className="w-4 h-4 text-rose-400" />
+              <MapPin className="w-4 h-4 text-rose-400 shrink-0" />
               <div>
                 <span className="text-[11px] text-slate-400 block">Base Location</span>
                 <span className="text-xs sm:text-sm font-medium text-white">{RESUME_DATA.location}</span>
@@ -152,8 +225,8 @@ export default function ContactSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-medium text-slate-300 mb-1">Your Name *</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -163,8 +236,8 @@ export default function ContactSection() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-slate-300 mb-1">Your Email *</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -176,8 +249,8 @@ export default function ContactSection() {
 
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1">Subject</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 placeholder="Full Stack Opportunity / Technical Inquiries"
@@ -187,8 +260,8 @@ export default function ContactSection() {
 
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1">Message *</label>
-              <textarea 
-                rows={4} 
+              <textarea
+                rows={4}
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}

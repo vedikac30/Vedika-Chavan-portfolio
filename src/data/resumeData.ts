@@ -6,15 +6,24 @@ export const RESUME_DATA: ResumeData = {
   location: "Andheri (E), Mumbai 400093",
   email: "chavanvedika3012@gmail.com",
   phone: "+91 8591294213",
+  github: "github.com/vedikac30",
+  githubUrl: "https://github.com/vedikac30",
+  linkedin: "linkedin.com/in/vedika-chavan",
+  linkedinUrl: "https://linkedin.com/in/vedika-chavan",
   about:
-    "Motivated and detail-oriented Full Stack Developer with hands-on experience in developing responsive web applications using React.js, Node.js, Express.js, and MongoDB. Strong understanding of REST APIs, JWT authentication, and modern UI engineering with Tailwind CSS. Passionate about building scalable architectures and solving real-world challenges through elegant software engineering.",
+    "Motivated and detail-oriented Full Stack Developer with hands-on experience in developing responsive web applications using React.js, Node.js, Express.js, and MongoDB. Strong understanding of REST APIs, authentication using JWT, and responsive UI development with Tailwind CSS. Passionate about building scalable applications, learning new technologies, and solving real-world problems through software development. Seeking an opportunity to contribute as a Full Stack Developer while continuously enhancing technical skills.",
   education: {
-    institution: "Chikitsaka Samuha Sir Sitaram and Lady Shantabai Patkar Varde College of Arts & Science",
+    institution: "Chitkitsaka Samuha Sir Sitaram and Lady Shatabai Patkar Varde College of Arts",
     degree: "B.Sc. in Computer Science",
     cgpa: "7.95 (SEM 6)",
     passingYear: "2026",
-    status: "Final Year Undergraduate"
+    status: "Final Year Undergraduate (Passing 2026)"
   },
+  academicStrengths: [
+    "Strong understanding of full development process.",
+    "Excellent analytical and problem-solving skills.",
+    "Quick learner, adaptable to new technologies."
+  ],
   experience: [
     {
       company: "Agrawal Packers and Movers Limited",
@@ -22,10 +31,11 @@ export const RESUME_DATA: ResumeData = {
       location: "Mumbai, India",
       period: "Internship • Present",
       highlights: [
-        "Architected and maintained dynamic web application features using React.js, modern JavaScript (ES6+), and responsive CSS.",
-        "Refactored legacy UI components to enhance page speed, cross-device responsiveness, and accessibility.",
-        "Identified and resolved critical bottlenecks in data fetching pipelines, ensuring seamless REST API integrations.",
-        "Streamlined workflows, intuitive layouts, and collaborated closely with senior engineers to implement client-centric features."
+        "Developed and maintained web application features using React.js, JavaScript, and other relevant technologies.",
+        "Improved UI components to enhance usability and responsiveness.",
+        "Identified and resolved issues related to data fetching and application functionality.",
+        "Simplified page content and layouts to improve the user experience.",
+        "Implemented new features based on project requirements and feedback from senior developers."
       ],
       skillsUsed: ["React.js", "JavaScript", "REST APIs", "Tailwind CSS", "UI/UX Optimization"]
     }

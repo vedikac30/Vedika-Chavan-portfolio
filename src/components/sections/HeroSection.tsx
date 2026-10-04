@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, GraduationCap, Briefcase, ChevronRight, Mail, Download, Terminal } from 'lucide-react';
+import { MapPin, GraduationCap, Briefcase, ChevronRight, FileText, Mail, Terminal } from 'lucide-react';
 import { RESUME_DATA } from '../../data/resumeData';
 
 interface HeroSectionProps {
@@ -40,10 +40,10 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
             <a
               href="#projects"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium text-sm shadow-xl shadow-indigo-600/30 transition-all flex items-center space-x-2 active:scale-95"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium text-sm shadow-xl shadow-indigo-600/30 transition-all flex items-center space-x-2 active:scale-95"
             >
               <span>Explore Interactive Projects</span>
               <ChevronRight className="w-4 h-4" />
@@ -51,7 +51,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
 
             <a
               href="#contact"
-              className="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700/90 text-slate-200 border border-slate-700 text-sm font-medium transition-all flex items-center space-x-2 active:scale-95"
+              className="px-5 py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 border border-slate-700/80 text-sm font-medium transition-all flex items-center space-x-2 active:scale-95 hover:border-slate-600"
             >
               <Mail className="w-4 h-4 text-indigo-400" />
               <span>Get in Touch</span>
@@ -59,10 +59,10 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
 
             <button
               onClick={onOpenResume}
-              className="px-4 py-3 rounded-xl border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 text-sm font-medium transition-all flex items-center space-x-2"
+              className="px-5 py-3 rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 text-sm font-medium transition-all flex items-center space-x-2 active:scale-95"
             >
-              <Download className="w-4 h-4" />
-              <span>CV View</span>
+              <FileText className="w-4 h-4 text-indigo-400" />
+              <span>View Resume</span>
             </button>
           </div>
         </div>

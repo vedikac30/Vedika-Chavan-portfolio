@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, Menu, X } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from '../icons/SocialIcons';
+import { RESUME_DATA } from '../../data/resumeData';
 
 interface HeaderProps {
   onOpenResume: () => void;
@@ -35,7 +37,29 @@ export default function Header({ onOpenResume }: HeaderProps) {
         </nav>
 
         {/* Action Buttons */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 sm:space-x-3">
+          <a
+            href={RESUME_DATA.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-xl bg-slate-800/90 border border-slate-700/70 text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-slate-800 transition-all flex items-center justify-center"
+            title="GitHub Profile"
+            aria-label="GitHub Profile"
+          >
+            <GithubIcon className="w-4 h-4" />
+          </a>
+
+          <a
+            href={RESUME_DATA.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-xl bg-slate-800/90 border border-slate-700/70 text-slate-300 hover:text-[#0a66c2] hover:border-[#0a66c2]/50 hover:bg-slate-800 transition-all flex items-center justify-center"
+            title="LinkedIn Profile"
+            aria-label="LinkedIn Profile"
+          >
+            <LinkedinIcon className="w-4 h-4" />
+          </a>
+
           <button
             onClick={onOpenResume}
             className="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs shadow-md shadow-indigo-600/30 transition-all active:scale-95"
@@ -58,50 +82,71 @@ export default function Header({ onOpenResume }: HeaderProps) {
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 backdrop-blur-xl">
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-medium hover:text-indigo-400"
           >
             About
           </a>
-          <a 
-            href="#projects" 
+          <a
+            href="#projects"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-medium hover:text-indigo-400"
           >
             Projects & Demos
           </a>
-          <a 
-            href="#skills" 
+          <a
+            href="#skills"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-medium hover:text-indigo-400"
           >
             Skills Matrix
           </a>
-          <a 
-            href="#experience" 
+          <a
+            href="#experience"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-medium hover:text-indigo-400"
           >
             Experience
           </a>
-          <a 
-            href="#education" 
+          <a
+            href="#education"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-medium hover:text-indigo-400"
           >
             Education
           </a>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-medium hover:text-indigo-400"
           >
             Contact
           </a>
 
-          <div className="pt-2">
+          <div className="pt-2 grid grid-cols-2 gap-2">
+            <a
+              href={RESUME_DATA.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold hover:border-indigo-500"
+            >
+              <GithubIcon className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
+            <a
+              href={RESUME_DATA.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-[#0a66c2] text-xs font-semibold hover:border-[#0a66c2]"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <div className="pt-1">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
